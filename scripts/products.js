@@ -1,5 +1,4 @@
-const API_URL_PRODUCTS =
-  'https://corsproxy.io/?' + encodeURIComponent('http://185.253.153.175/test/products');
+const API_URL_PRODUCTS = '/api/products';
 
 let editingId = null
 
