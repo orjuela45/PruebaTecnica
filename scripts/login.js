@@ -1,8 +1,10 @@
 async function login(username, password) {
-  const response = await fetch('http://185.253.153.175/test/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    'https://corsproxy.io/?' + encodeURIComponent('http://185.253.153.175/test/login'),
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       username,
