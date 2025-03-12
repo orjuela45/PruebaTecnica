@@ -1,4 +1,4 @@
-const API_URL_PRODUCTS = 'http://185.253.153.175/test/api/products'
+const API_URL_PRODUCTS = 'http://185.253.153.175/test/products'
 
 let editingId = null
 
