@@ -1,0 +1,19 @@
+.toast-container {
+    z-index: 1050;
+}
+
+.toast {
+    min-width: 250px;
+}
+
+.toast.bg-success .toast-header,
+.toast.bg-danger .toast-header {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.toast.bg-success .btn-close,
+.toast.bg-danger .btn-close {
+    filter: brightness(0) invert(1);
+}

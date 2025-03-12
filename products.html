@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Productos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="styles/toast.css" rel="stylesheet" />
+    <style>
+      .form-container {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .table-container {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        const token = localStorage.getItem('token')
+        if (!token) {
+          window.location.href = 'login.html'
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-light">
+    <div class="container mt-4">
+      <h2 class="text-center mb-4">Gestión de Productos</h2>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-container bg-white">
+            <h4 class="mb-3">Agregar/Editar Producto</h4>
+            <form id="productForm">
+              <input type="hidden" id="productId" />
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" required />
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Descripción</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="price" class="form-label">Precio</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label">Categoría</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="category"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" required />
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onclick="resetForm()"
+                >
+                  Limpiar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="table-container bg-white">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="productTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toast Container -->
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div
+          id="messageToast"
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <strong class="me-auto" id="toastTitle">Mensaje</strong>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body" id="toastMessage"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/products.js"></script>
+    <script src="scripts/toast.js"></script>
+  </body>
+</html>
